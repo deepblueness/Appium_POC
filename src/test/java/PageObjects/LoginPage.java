@@ -5,5 +5,5 @@ package PageObjects;
  */
 public interface LoginPage {
 
-    void clickLoginButton();
+    void login();
 }

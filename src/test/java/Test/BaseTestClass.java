@@ -15,8 +15,8 @@ public class BaseTestClass extends AppiumBaseClass{
         AppiumController.instance.start();
         switch (AppiumController.executionOS) {
             case ANDROID:
-                loginPage = new LoginPageAndroid(driver());
             case ANDROID_BROWSERSTACK:
+                loginPage = new LoginPageAndroid(driver());
                 break;
             case IOS:
             case IOS_BROWSERSTACK:

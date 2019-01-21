@@ -18,7 +18,7 @@ public class AppiumController {
     private static String IOS_HASHED_APP_ID = "<your_ios_hashed_appid>";
     private static String ANDROID_HASHED_APP_ID = "<your_android_hashed_appid>";
 
-    public static OS executionOS = OS.ANDROID;
+    public static OS executionOS = OS.IOS;
 
     public enum OS {
         ANDROID,
@@ -38,20 +38,21 @@ public class AppiumController {
             case ANDROID:
                //File classpathRoot = new File(System.getProperty("user.dir"));
                 //File appDir = new File(classpathRoot, "/app/Android");
-                //File app = new File (appDir, "Contacts.apk");
+                //File app = new File (appDir, "Freeletics.apk");
                 capabilities.setCapability("platformName", "Android");
                 capabilities.setCapability("deviceName", "Google Pixel");
                 capabilities.setCapability("app", "/Users/anastasia/Downloads/Freeletics-productionApi-debug.apk");
                 //capabilities.setCapability("appPackage", "com.jayway.contacts");
                 //capabilities.setCapability("appActivity", "com.jayway.contacts.MainActivity");
+                capabilities.setCapability("newCommandTimeout", "60");
                 driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
                 break;
             case IOS:
                 //classpathRoot = new File(System.getProperty("user.dir"));
                 //appDir = new File(classpathRoot, "/app/iOS/");
-                //app = new File(appDir, "ContactsSimulator.app");
+                //app = new File(appDir, "Freeletics_simulator.app");
                 capabilities.setCapability("platformName", "ios");
-                capabilities.setCapability("deviceName", "iPhone XS");
+                capabilities.setCapability("deviceName", "iPhone X");
                 capabilities.setCapability("app", "/Users/anastasia/Downloads/Freeletics.app");
                 capabilities.setCapability("automationName", "XCUITest");
                 capabilities.setCapability("platformVersion", "12.1");

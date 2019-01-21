@@ -28,7 +28,7 @@ public class LoginPageAndroid implements LoginPage {
     private MobileElement tjTitle;
 
 
-    public void clickLoginButton() {
+    public void login() {
         loginButton.click();
         emailField.sendKeys("1@freeletics.com");
         passwordField.sendKeys("freeletics");

@@ -16,8 +16,21 @@ public class LoginPageIOS implements LoginPage {
 
     @FindBy(xpath = "//XCUIElementTypeButton[@name=\"fl_accessibility_tourpage_login\"]")
     private MobileElement loginButton;
+    @FindBy(xpath = "XCUIElementTypeTextField[@name=\"fl_accessibility_enter_email\"]")
+    private MobileElement emailField;
+    @FindBy(xpath = "//XCUIElementTypeSecureTextField[@name=\"fl_accessibility_enter_password\"]")
+    private MobileElement passwordField;
+    @FindBy(xpath = "//XCUIElementTypeButton[@name=\"fl_accessibility_send_password_button\"]")
+    private MobileElement loginSubmit;
+    @FindBy(id="//XCUIElementTypeStaticText[@name=\"fl_accessibility_your_journeys_label\"]")
+    private MobileElement tjTitle;
 
-    public void clickLoginButton() {
-        loginButton.click();
+
+
+
+    public void login() {
+        emailField.sendKeys("1@freeletics.com");
+        passwordField.sendKeys("freeletics");
+        loginSubmit.click();
     }
 }
