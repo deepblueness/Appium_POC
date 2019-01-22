@@ -1,6 +1,8 @@
 package PageObjects;
 
+import AppiumSupport.AppiumController;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.AppiumSetting;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.Assert;
@@ -16,7 +18,7 @@ public class LoginPageIOS implements LoginPage {
 
     @FindBy(xpath = "//XCUIElementTypeButton[@name=\"fl_accessibility_tourpage_login\"]")
     private MobileElement loginButton;
-    @FindBy(xpath = "XCUIElementTypeTextField[@name=\"fl_accessibility_enter_email\"]")
+    @FindBy(xpath = "//XCUIElementTypeTextField[@name=\"fl_accessibility_enter_email\"]")
     private MobileElement emailField;
     @FindBy(xpath = "//XCUIElementTypeSecureTextField[@name=\"fl_accessibility_enter_password\"]")
     private MobileElement passwordField;
@@ -29,6 +31,8 @@ public class LoginPageIOS implements LoginPage {
 
 
     public void login() {
+
+        loginButton.click();
         emailField.sendKeys("1@freeletics.com");
         passwordField.sendKeys("freeletics");
         loginSubmit.click();
