@@ -6,10 +6,12 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.concurrent.TimeUnit;
+
 public class CoachPageAndroid implements CoachPage{
 
     public CoachPageAndroid(AppiumDriver driver) {
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver, 60, TimeUnit.SECONDS), this);
     }
 
     @FindBy(id = "com.freeletics.debug:id/header")
@@ -29,7 +31,7 @@ public class CoachPageAndroid implements CoachPage{
 
 
     public void startTraining(){
-        coachWeekTitle.click();
+
         beatYourPBDay.click();
         warmup.click();
         while (exerciseImage.isDisplayed()){exerciseImage.click();};

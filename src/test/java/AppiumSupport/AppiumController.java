@@ -18,6 +18,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import java.lang.String;
+import io.appium.java_client.MobileElement;
 
 public class AppiumController {
 
@@ -99,16 +100,7 @@ public class AppiumController {
             driver = null;
         }
     }
-
-    public void WaitForElementPresent1(String locator, int timeout) {
-        WebDriverWait wait = new WebDriverWait(driver, timeout);
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText(locator)));
-            //wait.until(ExpectedConditions.);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+    S
 
 
 }
