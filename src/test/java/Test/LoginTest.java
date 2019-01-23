@@ -1,6 +1,6 @@
 package Test;
+import AppiumSupport.AppiumController;
 import org.junit.Test;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginTest  extends BaseTestClass {
 
@@ -8,6 +8,8 @@ public class LoginTest  extends BaseTestClass {
     public void login() {
 
         loginPage.login();
+
+        coachPage.startTraining();
 
 
     }

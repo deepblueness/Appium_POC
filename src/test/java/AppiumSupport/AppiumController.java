@@ -17,6 +17,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
+import java.lang.String;
 
 public class AppiumController {
 
@@ -45,21 +46,15 @@ public class AppiumController {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         switch (executionOS) {
             case ANDROID:
-                //File classpathRoot = new File(System.getProperty("user.dir"));
-                //File appDir = new File(classpathRoot, "/app/Android");
-                //File app = new File (appDir, "Freeletics.apk");
                 capabilities.setCapability("platformName", "Android");
                 capabilities.setCapability("deviceName", "Google Pixel");
                 capabilities.setCapability("app", "/Users/anastasia/Downloads/Freeletics-productionApi-debug.apk");
-                //capabilities.setCapability("appPackage", "com.jayway.contacts");
-                //capabilities.setCapability("appActivity", "com.jayway.contacts.MainActivity");
-                capabilities.setCapability("newCommandTimeout", "120");
+                capabilities.setCapability("newCommandTimeout", "1760");
+                capabilities.setCapability("appPackage", "com.freeletics.debug");
+                capabilities.setCapability("appActivity", "com.freeletics.activities.StartActivity");
                 driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
                 break;
             case IOS:
-                //classpathRoot = new File(System.getProperty("user.dir"));
-                //appDir = new File(classpathRoot, "/app/iOS/");
-                //app = new File(appDir, "Freeletics_simulator.app");
                 capabilities.setCapability("platformName", "ios");
                 capabilities.setCapability("deviceName", "iPhone X");
                 capabilities.setCapability("app", "/Users/anastasia/Downloads/Freeletics.app");
@@ -69,7 +64,7 @@ public class AppiumController {
                 capabilities.setCapability("xcodeOrgId", "6QF744V9B9");
                 capabilities.setCapability("xcodeSigningId", "iPhone Developer");
                 capabilities.setCapability("newCommandTimeout", "120");
-                capabilities.setCapability("noReset", "true");
+                //capabilities.setCapability("noReset", "true");
                 driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 
                 break;
@@ -93,7 +88,9 @@ public class AppiumController {
                 driver = new IOSDriver(new URL("https://" + BS_USERNAME + ":" + BS_ACCESSKEY + "@hub-cloud.browserstack.com/wd/hub"), capabilities);
                 break;
         }
-        driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(7350, TimeUnit.SECONDS);
+
+
     }
 
     public void stop() {
@@ -102,4 +99,16 @@ public class AppiumController {
             driver = null;
         }
     }
+
+    public void WaitForElementPresent1(String locator, int timeout) {
+        WebDriverWait wait = new WebDriverWait(driver, timeout);
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText(locator)));
+            //wait.until(ExpectedConditions.);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

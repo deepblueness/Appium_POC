@@ -9,6 +9,7 @@ import AppiumSupport.AppiumController;
 
 public class BaseTestClass extends AppiumBaseClass{
     LoginPage loginPage;
+    CoachPage coachPage;
 
     @Before
     public void setUp() throws Exception {
@@ -17,10 +18,12 @@ public class BaseTestClass extends AppiumBaseClass{
             case ANDROID:
             case ANDROID_BROWSERSTACK:
                 loginPage = new LoginPageAndroid(driver());
+                coachPage = new CoachPageAndroid(driver());
                 break;
             case IOS:
             case IOS_BROWSERSTACK:
                 loginPage = new LoginPageIOS(driver());
+                coachPage = new CoachPageIOS(driver());
                 break;
         }
     }

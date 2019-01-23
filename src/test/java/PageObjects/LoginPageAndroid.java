@@ -1,5 +1,6 @@
 package PageObjects;
 
+import AppiumSupport.AppiumController;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -24,14 +25,21 @@ public class LoginPageAndroid implements LoginPage {
     private MobileElement loginSubmit;
     @FindBy(id="com.freeletics.debug:id/campaign_popup_image")
     private MobileElement imageCampaign;
+    @FindBy(partialLinkText="in")
+    private MobileElement signingInPopup;
+    @FindBy(partialLinkText="loading")
+    private MobileElement loadingMessage;
     @FindBy(id="com.freeletics.debug:id/title")
     private MobileElement tjTitle;
 
 
     public void login() {
         loginButton.click();
-        emailField.sendKeys("1@freeletics.com");
+        emailField.sendKeys("2@freeletics.com");
         passwordField.sendKeys("freeletics");
         loginSubmit.click();
+        AppiumController.instance.WaitForElementPresent1("Hybrid",60 );
+        //if (signingInPopup.isDisplayed()){signingInPopup.click();}
+        //while (loadingMessage.isDisplayed()){loadingMessage.click();}
     }
 }
