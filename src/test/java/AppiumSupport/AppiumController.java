@@ -40,7 +40,7 @@ public class AppiumController {
                 capabilities.setCapability("deviceName", "emulator-5556");
                 capabilities.setCapability("app", "/Users/anastasia/Downloads/Freeletics-productionApi-debug.apk");
                 capabilities.setCapability("automationName", "UiAutomator2");
-                capabilities.setCapability("newCommandTimeout", "1760");
+                //capabilities.setCapability("newCommandTimeout", "1760");
                 capabilities.setCapability("appPackage", "com.freeletics.debug");
                 capabilities.setCapability("appActivity", "com.freeletics.activities.StartActivity");
                 driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
