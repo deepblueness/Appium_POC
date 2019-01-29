@@ -4,21 +4,10 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.Calendar;
-import java.util.concurrent.TimeUnit;
-
-import static org.junit.Assert.assertTrue;
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
 import java.lang.String;
-import io.appium.java_client.MobileElement;
+
 
 public class AppiumController {
 
@@ -48,8 +37,9 @@ public class AppiumController {
         switch (executionOS) {
             case ANDROID:
                 capabilities.setCapability("platformName", "Android");
-                capabilities.setCapability("deviceName", "Google Pixel");
+                capabilities.setCapability("deviceName", "emulator-5556");
                 capabilities.setCapability("app", "/Users/anastasia/Downloads/Freeletics-productionApi-debug.apk");
+                capabilities.setCapability("automationName", "UiAutomator2");
                 capabilities.setCapability("newCommandTimeout", "1760");
                 capabilities.setCapability("appPackage", "com.freeletics.debug");
                 capabilities.setCapability("appActivity", "com.freeletics.activities.StartActivity");
@@ -100,7 +90,7 @@ public class AppiumController {
             driver = null;
         }
     }
-    S
+
 
 
 }
