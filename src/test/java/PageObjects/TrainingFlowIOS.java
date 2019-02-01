@@ -9,9 +9,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
-public class CoachPageIOS implements CoachPage  {
+public class TrainingFlowIOS implements TrainingFlowPage  {
 
-    public CoachPageIOS(AppiumDriver driver) {
+    public TrainingFlowIOS(AppiumDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver,60, TimeUnit.SECONDS), this);
         tapCoordinates = new TouchAction(driver);
 

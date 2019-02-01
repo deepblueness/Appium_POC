@@ -5,5 +5,5 @@ package PageObjects;
  */
 public interface CoachPage {
 
-    void startTraining();
+    void startTraining() ;
 }

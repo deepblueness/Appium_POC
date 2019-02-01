@@ -1,11 +1,10 @@
 package Test;
-import AppiumSupport.AppiumController;
 import org.junit.Test;
 
-public class LoginTest  extends BaseTestClass {
+public class GoThroughFirstWorkoutTest  extends BaseTestClass {
 
     @Test
-    public void login() {
+    public void goThroughFirstWorkout() {
 
         loginPage.login();
 

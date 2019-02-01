@@ -7,11 +7,12 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.Assert;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 import java.util.concurrent.TimeUnit;
 
-public class CoachPageAndroid implements CoachPage{
+public class RewardPageAndroid implements RewardPage{
 
-    public CoachPageAndroid(AppiumDriver driver) {
+    public RewardPageAndroid(AppiumDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver, 80, TimeUnit.SECONDS), this);
     }
 
@@ -72,5 +73,8 @@ public class CoachPageAndroid implements CoachPage{
         editWorkout.click();
         deleteButoon.click();
         confirmDeletion.click();
+    }
+    public void deleteTraining(){
+
     }
 }

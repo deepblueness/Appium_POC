@@ -7,11 +7,12 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.Assert;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 import java.util.concurrent.TimeUnit;
 
-public class CoachPageAndroid implements CoachPage{
+public class TrainingFlowAndroid implements TrainingFlowPage{
 
-    public CoachPageAndroid(AppiumDriver driver) {
+    public TrainingFlowAndroid(AppiumDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver, 80, TimeUnit.SECONDS), this);
     }
 

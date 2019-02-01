@@ -9,9 +9,9 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
-public class CoachPageIOS implements CoachPage  {
+public class RewardPageIOS implements RewardPage  {
 
-    public CoachPageIOS(AppiumDriver driver) {
+    public RewardPageIOS(AppiumDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver,60, TimeUnit.SECONDS), this);
         tapCoordinates = new TouchAction(driver);
 
@@ -82,6 +82,9 @@ public class CoachPageIOS implements CoachPage  {
         confirmDelete.click();
         day1.click();
 
+
+    }
+    public void deleteTraining(){
 
     }
 }

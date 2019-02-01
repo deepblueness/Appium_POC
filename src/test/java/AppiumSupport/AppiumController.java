@@ -40,22 +40,21 @@ public class AppiumController {
                 capabilities.setCapability("deviceName", "emulator-5556");
                 capabilities.setCapability("app", "/Users/anastasia/Downloads/Freeletics-productionApi-debug.apk");
                 capabilities.setCapability("automationName", "UiAutomator2");
-                //capabilities.setCapability("newCommandTimeout", "1760");
+                capabilities.setCapability("newCommandTimeout", "1760");
                 capabilities.setCapability("appPackage", "com.freeletics.debug");
                 capabilities.setCapability("appActivity", "com.freeletics.activities.StartActivity");
                 driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
                 break;
             case IOS:
                 capabilities.setCapability("platformName", "ios");
-                capabilities.setCapability("deviceName", "iPhone X");
+                capabilities.setCapability("deviceName", "iPhone XR");
                 capabilities.setCapability("app", "/Users/anastasia/Downloads/Freeletics.app");
                 capabilities.setCapability("automationName", "XCUITest");
                 capabilities.setCapability("platformVersion", "12.1");
-                capabilities.setCapability("udid", "D44A76AE-9E30-4F36-991F-6B97BD45B184");
+                capabilities.setCapability("udid", "16704DDE-CB64-4185-A583-EAAAD66CE834");
                 capabilities.setCapability("xcodeOrgId", "6QF744V9B9");
                 capabilities.setCapability("xcodeSigningId", "iPhone Developer");
-                capabilities.setCapability("newCommandTimeout", "120");
-                //capabilities.setCapability("noReset", "true");
+                capabilities.setCapability("noReset", "true");
                 driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 
                 break;

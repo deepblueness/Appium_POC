@@ -13,6 +13,8 @@ public class LoginPageAndroid implements LoginPage {
 
     @FindBy(id = "com.freeletics.debug:id/app_tour_login_button")
     private MobileElement loginButton;
+    @FindBy(id = "com.google.android.gms:id/cancel")
+    private MobileElement realDeviceCreadentialsAlert;
     @FindBy(id="com.freeletics.debug:id/login_email_edit_text")
     private MobileElement emailField;
     @FindBy(id="com.freeletics.debug:id/login_password_edit_text")
@@ -27,8 +29,10 @@ public class LoginPageAndroid implements LoginPage {
 
     public void login() {
         loginButton.click();
-        emailField.sendKeys("2@freeletics.com");
-        passwordField.sendKeys("freeletics");
+        //realDeviceCreadentialsAlert.click();
+        //realDeviceCreadentialsAlert.click();
+        emailField.sendKeys("anastasia+appium1@freeletics.com");
+        passwordField.sendKeys("test");
         loginSubmit.click();
 
 
