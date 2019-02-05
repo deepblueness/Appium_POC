@@ -5,6 +5,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -17,7 +18,7 @@ public class AppiumController {
     private static String IOS_HASHED_APP_ID = "<your_ios_hashed_appid>";
     private static String ANDROID_HASHED_APP_ID = "<your_android_hashed_appid>";
 
-    public static OS executionOS = OS.IOS;
+    public static OS executionOS = OS.ANDROID;
 
     public enum OS {
         ANDROID,
@@ -37,9 +38,12 @@ public class AppiumController {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         switch (executionOS) {
             case ANDROID:
+                File classpathRoot = new File(System.getProperty("user.dir"));
+                File appDir = new File(classpathRoot, "/app");
+                File app = new File(appDir, "Bodyweight (1).apk");
                 capabilities.setCapability("platformName", "Android");
                 capabilities.setCapability("deviceName", "emulator-5556 ");
-                capabilities.setCapability("app", "/Users/anastasia/Downloads/Bodyweight (1).apk");
+                capabilities.setCapability("app", app.getAbsolutePath());
                 capabilities.setCapability("automationName", "UiAutomator2");
                 capabilities.setCapability("newCommandTimeout", "1760");
                 capabilities.setCapability("appPackage", "com.freeletics.debug");
@@ -47,9 +51,12 @@ public class AppiumController {
                 driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
                 break;
             case IOS:
+                classpathRoot = new File(System.getProperty("user.dir"));
+                appDir = new File(classpathRoot, "/app");
+                app = new File(appDir, "Freeletics.app");
                 capabilities.setCapability("platformName", "ios");
                 capabilities.setCapability("deviceName", "iPhone XS Max");
-                capabilities.setCapability("app", "/Users/anastasia/Downloads/Freeletics.app");
+                capabilities.setCapability("app", app.getAbsolutePath());
                 capabilities.setCapability("automationName", "XCUITest");
                 capabilities.setCapability("platformVersion", "12.1");
                 capabilities.setCapability("udid", "BA180F12-2E05-4B32-830A-7FCC9EB96CCA");
