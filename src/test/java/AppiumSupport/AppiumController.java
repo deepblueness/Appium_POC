@@ -4,9 +4,9 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.lang.String;
 
 
 public class AppiumController {
@@ -17,7 +17,7 @@ public class AppiumController {
     private static String IOS_HASHED_APP_ID = "<your_ios_hashed_appid>";
     private static String ANDROID_HASHED_APP_ID = "<your_android_hashed_appid>";
 
-    public static OS executionOS = OS.ANDROID;
+    public static OS executionOS = OS.IOS;
 
     public enum OS {
         ANDROID,
@@ -29,6 +29,7 @@ public class AppiumController {
     public static AppiumController instance = new AppiumController();
     public AppiumDriver driver;
 
+
     public void start() throws MalformedURLException {
         if (driver != null) {
             return;
@@ -37,8 +38,8 @@ public class AppiumController {
         switch (executionOS) {
             case ANDROID:
                 capabilities.setCapability("platformName", "Android");
-                capabilities.setCapability("deviceName", "emulator-5556");
-                capabilities.setCapability("app", "/Users/anastasia/Downloads/Freeletics-productionApi-debug.apk");
+                capabilities.setCapability("deviceName", "emulator-5556 ");
+                capabilities.setCapability("app", "/Users/anastasia/Downloads/Bodyweight (1).apk");
                 capabilities.setCapability("automationName", "UiAutomator2");
                 capabilities.setCapability("newCommandTimeout", "1760");
                 capabilities.setCapability("appPackage", "com.freeletics.debug");
@@ -47,11 +48,11 @@ public class AppiumController {
                 break;
             case IOS:
                 capabilities.setCapability("platformName", "ios");
-                capabilities.setCapability("deviceName", "iPhone XR");
+                capabilities.setCapability("deviceName", "iPhone XS Max");
                 capabilities.setCapability("app", "/Users/anastasia/Downloads/Freeletics.app");
                 capabilities.setCapability("automationName", "XCUITest");
                 capabilities.setCapability("platformVersion", "12.1");
-                capabilities.setCapability("udid", "16704DDE-CB64-4185-A583-EAAAD66CE834");
+                capabilities.setCapability("udid", "BA180F12-2E05-4B32-830A-7FCC9EB96CCA");
                 capabilities.setCapability("xcodeOrgId", "6QF744V9B9");
                 capabilities.setCapability("xcodeSigningId", "iPhone Developer");
                 capabilities.setCapability("noReset", "true");
@@ -85,8 +86,11 @@ public class AppiumController {
 
     public void stop() {
         if (driver != null) {
+            driver.removeApp("com.Freeletics.Freeletics-Lite-Debug");
             driver.quit();
             driver = null;
+
+           // appiumService.stop;
         }
     }
 

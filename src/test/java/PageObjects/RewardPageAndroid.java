@@ -16,23 +16,8 @@ public class RewardPageAndroid implements RewardPage{
         PageFactory.initElements(new AppiumFieldDecorator(driver, 80, TimeUnit.SECONDS), this);
     }
 
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.freeletics.debug:id/list_item_coach_day_title\").instance(9)")
-    private MobileElement day1;
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.freeletics.debug:id/list_item_coach_workout_title\").instance(0)")
     private MobileElement warmup;
-    @FindBy(id="com.freeletics.debug:id/switchForActionBar")
-    private MobileElement trainingFallbackSwitch;
-    @FindBy(id = "com.freeletics.debug:id/buttonCta")
-    private MobileElement startWorkout;
-    @FindBy(id= "com.freeletics.debug:id/continueButton")
-    private MobileElement start;
-    @FindBy(id = "com.freeletics.debug:id/title")
-    private MobileElement exerciseTitle;
-    @FindBy(id = "com.freeletics.debug:id/continue_action_button")
-    private MobileElement saveTraining;
-    @FindBy(id = "com.freeletics.debug:id/workout_summary_finish_button")
-    private MobileElement finishButton;
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.freeletics.debug:id/counter_label\").instance(1)")
     private MobileElement checkMark;
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.freeletics.debug:id/list_item_coach_time\").instance(1)")
@@ -48,33 +33,15 @@ public class RewardPageAndroid implements RewardPage{
     @FindBy(id= "android:id/button1")
     private MobileElement confirmDeletion;
 
-    public void startTraining(){
 
-        day1.click();
-        trainingFallbackSwitch.click();
-        warmup.click();
-        startWorkout.click();
-        //start.click();
-
-
-        int count =0 ;
-
-        while (count < 7) // this is hardcoded right now, should count the exercises first
-        {
-            exerciseTitle.click();
-            count++;
-        }
-
-        saveTraining.click(); //all this flow should be separated in more page objects
-        finishButton.click();
+    public void deleteTraining(){
         warmup.click();
         Assert.assertTrue(timeOrDoneIcon.isDisplayed());
         Assert.assertTrue(pointsTotal.isDisplayed()); //i should better assert the actual amount of points
         editWorkout.click();
         deleteButoon.click();
         confirmDeletion.click();
-    }
-    public void deleteTraining(){
+        Assert.assertTrue(warmup.isDisplayed());
 
     }
 }

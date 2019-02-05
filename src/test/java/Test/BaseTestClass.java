@@ -29,7 +29,7 @@ public class BaseTestClass extends AppiumBaseClass{
                 loginPage = new LoginPageIOS(driver());
                 coachPage = new CoachPageIOS(driver());
                 trainingFlowPage = new TrainingFlowIOS(driver());
-                rewardPage = new RewardPageAndroid(driver());
+                rewardPage = new RewardPageIOS(driver());
                 break;
         }
     }

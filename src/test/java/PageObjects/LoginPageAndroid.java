@@ -23,16 +23,20 @@ public class LoginPageAndroid implements LoginPage {
     private MobileElement loginSubmit;
     @FindBy(id="com.freeletics.debug:id/campaign_popup_image")
     private MobileElement signingInPopup;
+
     public LoginPageAndroid(AppiumDriver driver) {
-        PageFactory.initElements(new AppiumFieldDecorator(driver,60, TimeUnit.SECONDS), this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver,80, TimeUnit.SECONDS), this);
     }
+
+
 
     public void login() {
         loginButton.click();
         //realDeviceCreadentialsAlert.click();
         //realDeviceCreadentialsAlert.click();
-        emailField.sendKeys("anastasia+appium1@freeletics.com");
-        passwordField.sendKeys("test");
+        //emailField.sendKeys("anastasia+appium1@freeletics.com");
+        emailField.sendKeys("2@freeletics.com");
+        passwordField.sendKeys("freeletics");
         loginSubmit.click();
 
 

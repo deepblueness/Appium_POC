@@ -7,9 +7,9 @@ public class GoThroughFirstWorkoutTest  extends BaseTestClass {
     public void goThroughFirstWorkout() {
 
         loginPage.login();
-
-        coachPage.startTraining();
-
+        coachPage.selectDay();
+        trainingFlowPage.doTraining();
+        rewardPage.deleteTraining();
 
     }
 }

@@ -17,8 +17,6 @@ public class TrainingFlowIOS implements TrainingFlowPage  {
 
     }
 
-    @FindBy(xpath = "//XCUIElementTypeStaticText[@name=\"1\"]")
-    private MobileElement day1;
     @FindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Dynamic Warmup \"]")
     private MobileElement warmup;
     @FindBy(xpath = "//XCUIElementTypeButton[@name=\"Start\"]")
@@ -29,58 +27,33 @@ public class TrainingFlowIOS implements TrainingFlowPage  {
     private MobileElement finalExerciseLabel;
     @FindBy(xpath = "//XCUIElementTypeCell[1]")
     private MobileElement nextExerciseCell;
-    @FindBy(xpath = "//XCUIElementTypeStaticText[@name=\"Next\"]")
-    private MobileElement nextExerciseCell1;
-
-    @FindBy(xpath = "XCUIElementTypeStaticText[`name CONTAINS[cd] \"%\"`]")
-    private MobileElement percentage;
-
-
     @FindBy(xpath = "//XCUIElementTypeButton[@name=\"Finish\"]")
     private MobileElement finishTraining;
-    @FindBy(xpath = "//XCUIElementTypeImage[@name=\"icon_interval_middle\"]")
-    private MobileElement iconFinish;
-    @FindBy(xpath = "//XCUIElementTypeButton[@name=\"icon edit\"]")
-    private MobileElement editIcon;
-    @FindBy(xpath = "//XCUIElementTypeButton[@name=\"Delete Workout\"]")
-    private MobileElement deleteButtoon;
-    @FindBy(xpath = "//XCUIElementTypeButton[@name=\"Delete Training\"]")
-    private MobileElement confirmDelete;
 
 
     TouchAction tapCoordinates;
 
 
 
-    public void startTraining() {
+    public void doTraining() {
 
-
-
-        day1.click();
         warmup.click();
+        warmup.click(); //to dismiss 2by2
 
         startButton.click();
 
-        /*while (nextExerciseCell.isEnabled()) {
-            nextExerciseCell1.click();
-            System.out.println("clicked");
-        } */
 
         for (int i=0; i<7; i++){
 
             nextExerciseCell.click();
 
-            }
+        }
 
         finalExerciseLabel.click();
-
         saveTraining.click();
         finishTraining.click();
         warmup.click();
-        editIcon.click();
-        deleteButtoon.click();
-        confirmDelete.click();
-        day1.click();
+
 
 
     }
